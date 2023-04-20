@@ -41,7 +41,8 @@ PS> Add-EsxSoftwarePackage -ImageProfile MyExsi -SoftwarePackage net-community
 ```
 PS> Export-EsxImageProfile -ImageProfile MyExsi -ExportToISO -filepath .\MyExsi.iso
 ```
-
+其他参考:
+[https://kb.vmware.com/s/article/2005205?lang=zh_cn#Update_Manager]
 
 [^_^]:
     参考地址
