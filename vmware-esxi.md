@@ -3,7 +3,8 @@
 
 ### No Network Adapters
 出现该问题是由于无法找到合适的网卡驱动程序，可以在[vmware社区][vmware-drivers]下载驱动程序集合(或手动下载对应的驱动程序)
-**如果是realtek的网卡就别挣扎了，建议直接再上个intel的网卡**
+
+**如果是realtek的网卡就别挣扎了，建议直接再上个intel的网卡**，esxi兼容性列表请[看这里][compatibility]
 
 1. 先安装vmware官方的powercli的docker镜像，启动镜像并将目录`~/esxi/`映射到容器中
 ```
@@ -49,7 +50,9 @@ PS> Export-EsxImageProfile -ImageProfile MyEsxi -ExportToISO -filepath ./MyEsxi.
 `exit`退出容器，在`~/esxi/`目录中MyEsxi.iso即为构建好的安装镜像
 
 参考:
+
 [添加驱动][add-drivers]
+
 [powercli官网][powercli]
 
 [^_^]:
@@ -59,4 +62,5 @@ PS> Export-EsxImageProfile -ImageProfile MyEsxi -ExportToISO -filepath ./MyEsxi.
 [esxi-download]: <https://customerconnect.vmware.com/en/evalcenter?p=free-esxi8> (点击打开)
 [powercli]: <https://developer.vmware.com/powercli>
 [add-drivers]: <https://kb.vmware.com/s/article/2005205?lang=zh_cn#Update_Manager>
+[compatibility]: <https://www.vmware.com/resources/compatibility/search.php?deviceCategory=io&details=1&deviceTypes=6&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc>
 
