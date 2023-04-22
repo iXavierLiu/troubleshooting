@@ -2,7 +2,7 @@
 出现该问题是由于文件校验错误，请检查启动镜像刻录是否完整，尝试更换工具刻录镜像或更换镜像刻录的存储设备后重试
 
 ### No Network Adapters
-( **如果是realtek的网卡就别挣扎了，建议直接再上个intel的网卡**，esxi兼容性列表请[看这里][compatibility] )
+( **如果是realtek的网卡就别挣扎了，建议直接再上个intel的网卡**，通过`lspci | grep Ethernet`查看网卡类型，esxi兼容性列表请[看这里][compatibility] )
 
 出现该问题是由于无法找到合适的网卡驱动程序，可以在[vmware社区][vmware-drivers]下载驱动程序集合(或手动下载对应的驱动程序)，然后手动创建一个包含该驱动的esxi启动镜像
 
