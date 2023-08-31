@@ -140,6 +140,11 @@ echo D8482CC684C888C6E115F0DBCA91F1A2166BE8BC >> .gnupg/sshcontrol
 echo enable-ssh-support >> ~/.gnupg/gpg-agent.conf
 ```
 
+覆盖默认的ssh agent(这只临时生效，可以放到`~/.bash_profile`文件以自动覆盖)
+```
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+```
+
 查看ssh密钥是否在ssh代理中可用
 ```
 $ ssh-add -L
