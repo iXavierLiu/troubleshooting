@@ -1,5 +1,6 @@
 # GnuPGP.md
 ## 添加ssh支持
+### 添加过程
 查看现有证书
 ```
 $ gpg --list-keys
@@ -152,4 +153,6 @@ Last login: Thu Aug 31 01:43:54 2023 from 0.0.0.0
 ...
 ```
 
+### 错误排查及其他提示
+检查`PubkeyAuthentication yes`选项是否开启，如使用root登录检查`PermitRootLogin yes`选项是否开启，如需关闭密码登录需要设置`PasswordAuthentication no`
 
