@@ -158,6 +158,17 @@ Last login: Thu Aug 31 01:43:54 2023 from 0.0.0.0
 ...
 ```
 
+
 ### 错误排查及其他提示
+#### 认证失败
+```
+$ ssh git@github.com
+sign_and_send_pubkey: signing failed for RSA "(none)" from agent: agent refused operation
+git@github.com: Permission denied (publickey).
+```
+上面流程对Win32下的gpg-agent的配置运行良好，但是对于无GUI的Linux终端，如果密钥中需要使用密码，则默认会通过`pinentry-curses`(一个gpg用于安全获取密码的工具)弹出一个对话框来安全地获取该密钥的密码([参考](https://manpages.debian.org/testing/pinentry-curses/pinentry.1.en.html))，它总是需要通过命令`gpg-connect-agent updatestartuptty /bye`([参考](https://manpages.ubuntu.com/manpages/jammy/man1/gpg-agent.1.html))来指定当前tty，否则它要么无法找到正确的tty，要么有可能会在其他(非当前)tty中展示对话框。总之如果无法正确地将密码传递给agent，它就无法验证该请求。
+
+
+其他：
 检查`PubkeyAuthentication yes`选项是否开启，如使用root登录检查`PermitRootLogin yes`选项是否开启，如需关闭密码登录需要设置`PasswordAuthentication no`
 
